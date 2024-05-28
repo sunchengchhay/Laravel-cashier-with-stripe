@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-nav-link :href="route('products.index')"
-        class="mx-10 bg-slate-300 my-4 py-2 px-6 hover:bg-slate-400 hover:text-white rounded-md">
+        class="mx-4 bg-slate-300 my-4 py-2 px-6 hover:bg-slate-400 hover:text-white rounded-md">
         back
     </x-nav-link>
 

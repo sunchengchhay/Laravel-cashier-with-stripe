@@ -1,11 +1,11 @@
 <x-app-layout>
     <h2 class="text-center text-4xl mb-10 mt-5">All Products</h2>
-    <div class="w-auto mx-10">
+    <div class="w-auto">
         @if ($products->count())
-            <div class="flex justify-around">
+            <div class="flex flex-wrap justify-around">
                 @foreach ($products as $product)
                     <div
-                        class="w-[200px] block rounded-lg bg-white p-6 text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white">
+                        class="w-[200px] my-10 block rounded-lg bg-white p-6 text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white">
                         <h5 class="mb-2 text-xl font-medium leading-tight">{{ $product->name }}</h5>
                         <p class="mb-4 text-base">{{ $product->description }}</p>
                         <p class="mb-4 text-base">${{ $product->price }}</p>

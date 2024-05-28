@@ -66,14 +66,16 @@ class CartController extends Controller
         }
 
         $stripeSession = $request->user()->checkout($lineItems, [
-            'success_url' => route('products.index') . '?success=true',
+            'success_url' => route('cart.success'),
             'cancel_url' => route('cart.show'),
         ]);
+
+        session()->put('invoice_data', $cart);
 
         return redirect($stripeSession->url);
     }
 
-    public function remove(Request $request, $id)
+    public function remove($id)
     {
         $cart = session()->get('cart');
 
@@ -83,5 +85,13 @@ class CartController extends Controller
         }
 
         return redirect()->route('cart.show')->with('success', 'Product removed from cart successfully!');
+    }
+
+    public function success()
+    {
+        // Clear the cart data from the session
+        session()->forget('cart');
+
+        return view('cart.success');
     }
 }
